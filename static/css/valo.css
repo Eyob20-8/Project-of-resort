@@ -1,0 +1,328 @@
+body{
+    margin: 0px;
+    font-family:"Poppins";
+}
+.barba{
+    list-style: none;
+}
+.kvr:hover{
+    color:hsl(0, 92%, 33%);
+}
+.youtube:hover{
+    color: red;
+}
+.gmail:hover{
+    color: lab(17.77% -22.62 13.57 / 0.753);
+}
+.contact:hover{
+    color: black;
+}
+.mvr{
+    position: fixed;
+    width: 100%;
+    margin: 0px;
+    top: 0;
+    display:flex;
+    flex-direction: row;
+    background-color: #1989bd;
+    height: 80px;
+    list-style: none;
+    align-items:center;
+    font-size: 30px;
+    color: #9bcd30;
+}
+.mvr li:hover{
+    color:black;
+}
+.nav-menu li:nth-child(1){
+    margin-left:10px;
+}
+.horizon li:nth-child(2){
+    margin-left:30px;
+}
+.horizon li:nth-child(3){
+    margin-left:20px;
+}
+.horizon li:nth-child(4){
+    margin-left:40px;
+}
+.horizon li:nth-child(6){
+    margin-left:20px;
+}
+.horizon li:nth-child(7){
+    margin-left:20px;
+}
+.horizon li:nth-child(8){
+    margin-left:20px;
+}
+.bas{
+    border-radius:18px;
+    border: 2px solid;
+    height:30px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.masd{
+    background-color: #219bd0;
+    display: inline-flex;
+    gap:3px;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    height: 50px;
+}
+.social{
+    display: grid;
+}
+.kvr,.youtube,.gmail{
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    text-decoration: none;
+}
+.contact span{
+    margin-left: 3px;
+    font-size:13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.gert{
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+}
+footer{
+    width: 100%;
+    padding: 20px 40px;
+    background-color: rgb(118, 127, 171);
+}
+.ferge{
+    width: 100%;
+    display:flex;
+    margin-top: 0px;
+    top:0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding-bottom:20px;
+}
+.box{
+    display: flex;
+    flex-direction:column;
+    padding-left: 5px;
+}
+.box input{
+     width: 140px;
+}
+.cjf{
+    width:120px;
+    height: 60px;
+    background-color: #9bcd30;
+    border: 1px lightcyan;
+    border-radius: 4px;
+    top:2px;
+    margin-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+    font-weight: bold;
+}
+.cjf:hover{
+    background-color: brown;
+}
+#menu-list{
+    background-color: hsl(200, 43%, 95%);
+    position:absolute;
+    margin: 0;
+    left:0;
+    top:0;
+    list-style: none;
+    padding-bottom:100% ;
+    width:300px;
+    padding-top: 30px;
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.hidden{
+    display:none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#menu-icon{
+    cursor: pointer;
+    margin-right: 8px; /* Adjust the pixels (px) to get the exact spacing you want */
+
+}
+
+.damot{
+    padding-left: 34px;
+    color:#130202;
+}
+hr{
+    width: 80%;
+}
+.mashap{
+    text-align: center;
+}
+p{
+    padding-left: 4px;
+    text-align: start;
+}
+.view{
+    width:300px;
+    height:200px;
+}
+.faf{
+    display: flex;
+    padding-left: 30px;
+    gap: 40px;
+    margin-bottom:20px;
+    list-style: none;
+}
+footer h3{
+    font-size: medium;
+    font-weight: bolder;
+}
+#book,#taye,#room{
+    text-decoration:none;
+    color: black
+}
+footer hr{
+    /*align-items: start;*/
+    width:90%;
+    align-items: start;
+}
+#baba{
+    text-decoration: none;
+    color: white;
+}
+#baba:hover{
+    color: #ffcc00;
+}
+.dd{
+    width:80px;
+    height: 72px;
+    margin-top: 2px;
+
+}
+.horizon{
+    display: flex;
+}
+.marqua{
+    display: grid;
+}
+/* Sets up the navigation container as a stack of blocks vertically */
+.navbar {
+    display: flex;
+    flex-direction: column; /* Stacks row 1 on top of row 2 */
+    width: 100%;
+    background-color: #219bd0;
+    font-family: "Poppins";
+    font-size:1.25rem;
+
+}
+
+/* Row 1 Design */
+.nav-announcement {
+    width: 100%;
+    /*background-color: #222; /* Add your resort theme color here */
+    color: #fff;
+    padding: 8px 0;
+    font-size: 20px;
+}
+
+/* Row 2 Design: This keeps your original logo and layout grouped horizontally */
+.nav-main-row {
+    display: flex;
+    justify-content: flex-start; /* Pushes logo left and menu right */
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Keep your existing style definitions for .nav-menu, .nav-logo, etc. here */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 15px; /* Adjust spacing between menu items */
+    align-items: center;
+}
+.menu-icons {
+    font-size: 1.25rem;
+    color: #130202;
+}
+
+/* Sleek Minimalist Search Bar Input */
+.nav-search {
+    padding: 6px 42px;
+    border: 1px solid #444;
+    border-radius: 20px;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.nav-search:focus {
+    border-color: #ffcc00;
+    background-color: #333333;
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+}
+.nav-menu li, 
+.nav-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Hover Accent Color change */
+.nav-menu li a:hover,
+.nav-menu li:hover {
+    color: #ffcc00; 
+}
+#messob {
+    display: flex;             /* FIXED: Added to make centering work */
+    justify-content: center;   /* Centers icon horizontally */
+    align-items: center;       /* Centers icon vertically */
+    position: relative;
+    border: 1px solid black;
+    background-color: white;
+    margin-left: -20%;          /* Adjust this if it pushes the icon too far right */
+    height: 50px;
+    width: 50px;
+    padding: 0;                /* FIXED: Removed the asymmetric padding that throws off centering */
+    border-radius: 50%;
+    color: #1989bd;
+}
+
+/* Removes underline and bold from the profile link specifically */
+a[href*="profile"] {
+    text-decoration: none;  
+    font-weight: normal;
+    color: #130202;    
+}
+
+/* Apply it to all links inside your menu list */
+#menu-list a {
+    text-decoration: none;  
+    font-weight: normal;  
+    color:#130202;  
+}
+
+#menu-list a:hover {
+    color: #c7eb00;
+}
+
+.malo-link {
+    display: flex;
+    align-items: center;  
+    justify-content: space-between;     /* Keeps the menu button and profile button lined up */
+}
+#malo-link{
+    gap:10px;
+}
+
+
+
+

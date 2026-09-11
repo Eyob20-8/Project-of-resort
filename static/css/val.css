@@ -1,0 +1,90 @@
+body{
+    margin:0px;
+    background-color: #2462a9;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.masta{
+    display:flex;
+    flex-direction: column;
+    padding-left:150px;
+    width: 350px;
+    height: 220px;
+    list-style: none;
+}
+.masta input{
+    height:40px;
+    justify-content: center;
+    border-radius:4px;
+    box-sizing: border-box;
+    padding:0px 15px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.masta input:focus {
+  border-color: #007bff; /* blue border when active */
+  outline: none;
+}
+.ice{
+    padding-left: 200px;
+}
+.tata{
+    padding:200px;
+}
+.kalg{
+    width: 60px;
+    height:30px;
+    text-align: center;
+    margin-left: 140px;
+    border-radius: 30px;
+
+}
+footer{
+    width:100%;
+    background-color: beige;
+    padding: 20px 40px;
+    text-align: center;
+}
+.barba{
+    list-style: none;
+}
+.ser{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    padding-right:90px;
+}
+.confirm{
+    padding-left: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:350px;
+    margin:50px auto;
+
+} 
+.lonely{
+    width: 65px;
+    height: 30px;
+    margin-left: 70px;
+    cursor:pointer;
+    border-radius: 30px;
+}
+.confirm input{
+    margin-bottom: 10px;
+    width: 100%;
+    height:40px;
+    box-sizing: border-box;
+    padding: 0px 15px;
+    border-radius: 10px;
+}
+.ker{
+    justify-content:center;
+    padding-left:450px;
+}
+.mal{
+    margin-top: 50px;
+}
+.mas{
+    color: cornsilk;
+}
