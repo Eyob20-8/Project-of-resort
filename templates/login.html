@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>login</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/val.css') }}" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+  <body>
+      <section>
+        <nav class="tata">
+          <h1 class="ice">Mekdem Resort</h1>
+          <form class="masta" id="play" method=POST action="/login">
+            <input id="loginUsername" name="username" placeholder="Username" required>
+            <input id="loginPassword" name="password" placeholder="Password" type="password" required>
+            <button type="submit" class="kalg" id="submit">login</button>
+            <div class="ser">
+              <p>Don't have an account?</p>
+              <a  class="mas" href="{{ url_for('register') }}">Sign-up</a>
+             </div>
+          </form>
+        </nav>
+           {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <script>
+          // Loops through any messages sent down by your Flask server
+          {% for message in messages %}
+            alert("{{ message }}");
+          {% endfor %}
+        </script>
+      {% endif %}
+    {% endwith %}
+      </section>
+      <footer>
+      <script src="{{ url_for('static', filename='js/haso.js') }}"></script>
+        <nav>
+          <ul class="barba">
+            <li>&copy;2026 All rights are reserved</li>
+            <li>Adama.Ethiopia</li>
+          </ul> 
+        </nav>
+      </footer>
+  </body>
+</html>

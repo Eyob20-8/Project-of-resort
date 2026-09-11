@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/valomm.css')}}">
+</head> 
+<body>
+    <nav class="desak">
+        <div class="feres"> 
+            <h1>Check-out</h1> 
+            <form id="reo"  action="javascript:void(0);" >
+                <div class="mertho"> 
+                    <label for="nam">Username</label>
+                    <input id="nam" class="manega" placeholder="Enter your name">
+                </div>
+                <div class="mertho">
+                    <label for="prom">Room number</label>
+                    <input id="prom" class="manega" placeholder="Enter Room number">
+                </div> 
+                <button class="Sent" id="submita" type="submit" >Check</button>
+            </form>
+        </div>
+        <div class="ter">
+            <div class="star-rating">
+                <span data-value="1">&#9733</span>
+                <span data-value="2">&#9733</span>
+                <span data-value="3">&#9733</span> 
+                <span data-value="4">&#9733</span> 
+                <span data-value="5">&#9733</span>
+            </div> 
+            <p id="rating-value">Rating: 0</p> 
+        </div> 
+    </nav> 
+    <script src="{{url_for('static',filename='js/dima.js')}}"></script> 
+</body> 
+</html>

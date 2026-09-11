@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign up</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/val.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+        <section class="mal">
+            <h1 class="ker">Registeration</h1>
+            <form class="confirm" id="start" method="POST" action="{{ url_for('register') }}">
+                <input id="Username" name="username" placeholder="Username" required>
+                <input id="Password" name="password" placeholder="Create password" type="password" required>
+                <input id="Confirmpassword" placeholder="Confirm password" type="password" required>
+                <input type="email" id="Email" name="email" placeholder="Email address" required>
+                <button type="submit" id="finish" class="lonely">Register</button>
+            </form>
+            
+        </section>
+        <script src="{{url_for('static',filename='js/masa.js')}}"></script>
+
+    </body>
+
+</html>

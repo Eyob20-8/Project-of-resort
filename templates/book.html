@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>Book now</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/valomm.css')}}">
+    </head>
+    <body>
+        <nav class="may"> 
+             <h1>Reserve your Room</h1>
+             <hr>
+             <form id="begin" class="furt" type="submit" method="POST" action="/booking">
+                 <div class="cmcd">
+                     <label>Name</label>
+                     <input id="Name" class="name" name="fullname" placeholder="Enter your name">
+                 </div>
+                 <h2>Select room</h2>
+                 <div class="scroll">
+                    <label class="selection-item" ondblclick="unchooseItem(this)">
+                        <input type="radio" name="room_type" value="Single">Single
+                    </label>
+                    <label class="selection-item" ondblclick="unchooseItem(this)">
+                        <input type="radio" name="room_type" value="Double">Double
+                    </label>
+                    <label class="selection-item" ondblclick="unchooseItem(this)">
+                        <input type="radio" name="room_type" value="Deluxe">Deluxe
+                    </label>
+                 </div>
+                 <div class="cmcd">
+                     <label>Email</label>
+                     <input id="google" class="name" name="email" placeholder="Enter your email address">
+                 </div>
+                 <div class="req">
+                     <div class="cmc ">
+                         <label>Adult</label>
+                         <input id="numbera" type="number" name="adults" min="1" value="1">
+                     </div>
+                     <div class="cmc">
+                         <label>Child</label>
+                         <input id="numberb" type="number" name="children" min="0" value="1">
+                     </div>
+                 </div>
+                 <div class="req">
+                     <div class="ck">
+                         <label>Check-in</label>
+                         <input id="datea" name="checkin" type="date">
+                     </div>
+                     <div class="ck">
+                         <label>Check-out</label>
+                         <input id="dateb" name="checkout" type="date">
+                     </div>
+                 </div>
+                 <button id="button" class="end" type="submit">Submit</button>
+                 <div id="error-msg"></div>
+                 <div id="total-msg"></div>
+            </form>
+        </nav>
+         {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                       {% if message.startswith('Room:') %}
+                             {% set data_parts = message.replace('Room:', '').split(',') %}
+                
+                            <!-- 2. Assign room number and name to custom data attributes -->
+                             <div id="room-alert-data" 
+                                 data-room="{{ data_parts[0] }}" 
+                                 data-name="{{ data_parts[1] }}">
+                             </div>
+
+                        {% endif %}
+                     {% endfor %}
+                 {% endif %}
+        {% endwith %}
+    <script src="{{url_for('static',filename='js/occyp.js')}}"></script>
+    </body>
+</html>

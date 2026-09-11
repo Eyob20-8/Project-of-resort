@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Kedamawi Resort</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/valo.css')}}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+        <section>
+            <nav class="navbar">
+                 <div class="nav-announcement">
+                     <marquee direction="left">Kedamawi Resort: a place of pleasure</marquee>
+                 </div>
+                 <div class="nav-main-row">
+                     <!-- Brand Logo -->
+                     <div class="nav-logo">
+                         <img class="dd" src="/static/Images/roke.png" alt="Resort Logo">
+                     </div>
+                 <!-- Navigation Interactive Links -->
+                     <ul class="nav-menu">
+                         <li><i id="menu-icon" class="fa-solid fa-bars menu-icons"></i></li>
+                         <li><a href="#">Dashboard</a></li>
+                         <li><input class="nav-search" placeholder="Search..."></li>
+                         <li class="Event"><a href="#">Event</a></li>
+                         <li class="Event"><a href="#">Destination</a></li>
+                         <li><a id="baba" href="{{url_for('gallery')}}">Gallery</a></li>
+                         <li><i id="menu-icon" class="fas fa-user-circle"></i><a href="{{url_for('login')}}">Log-out</a></li>
+                         <li><a href="#">Contact</a></li>
+                     </ul>
+                     <ul id="menu-list" class="hidden"> 
+                         <li class="malo-link"> 
+                         <!-- Removed url_for from the back button so JavaScript can handle it -->
+                             <a href="#" id="malo-link"> 
+                                 <i id="malo" class="fa-solid fa-bars menu-icons"></i> 
+                                 <span class="dot">Menu</span> 
+                             </a> 
+                             <!-- Standardized route to lowercase 'profile' -->
+                             <a href="{{ url_for('profile') }}" aria-label="profile"> 
+                                 <i id="messob" class="fa-solid fa-user"></i> 
+                             </a> 
+                         </li> 
+                         <li class="damot"><a id="book" href="{{ url_for('booking') }}">Book a room</a></li> 
+                         <li class="damot"><a id="taye" href="{{ url_for('checkout') }}">Checkout</a></li> 
+                         <li class="damot"><a id="room" href="{{ url_for('history') }}">History</a></li> 
+                         <li class="damot"><a href="{{ url_for('checkout') }}">Feedback</a></li> 
+                         <li class="damot"><a href="{{ url_for('checkout') }}">About us</a></li> 
+                     </ul>
+                </div>
+             </nav>
+             <nav class="kersa">
+                <div class="ferge">
+                    <img  class="gert" src="/static/Images/imaga.jpg" >
+                    <div class="masd">
+                        <div class="box">
+                             <label>Adult</label>
+                             <input id="adult" type="number" min="0" value="1" max="10">
+                        </div>
+                        <div class="box">
+                            <label>Child</label>
+                            <input id="child" type="number" min="0" value="1" max="4" > 
+                        </div>
+                        <div class="box">
+                            <label>Date</label>
+                            <input id="date" type="date" >
+                        </div>
+                        <div class="box">
+                            <button id="book-btn" class="cjf">Check availability</button>
+                        </div>
+                        <div id="error-msg"></div>
+                        <div id="total-msg"></div>
+                    </div>
+                </div>
+                <hr>
+                <h1 class="mashap">Enjoy your stay with us</h1>
+                <p>Welcome to our resort, where comfort and delight await you. We will provide heartfelt service to all our guests. The special thing about our resort is that we take care of every guest like a king, with comfortable beds and a relaxing swimming pool. Let's make it a memorable part of your life.</p>
+                <hr>
+                <ul class="faf">
+                    <li><img class="view" src="/static/Images/image-1.jpg"><p>Enjoy a beautiful beach view, with sunlit trees, a sparkling pool, and lively scenes of people and children at play."</p></li>
+                    <li><img class="view" src="/static/Images/image-2.jpg"><p>The Building offer a delightful view of the forests and the sun rise on the morning.</p></li>
+                    <li><img class="view" src="/static/Images/image-3.jpg"><p>A breathtaking view of sunset over the beach with gentle night breath.</p></li>
+                </ul>
+                <hr>
+            </nav>    
+        </section>
+        <footer>
+            <nav>
+                <ul class="barba">
+                    <div class="social">
+                        <h3>More information</h3>
+                        <a class="kvr" href="http://instagram.com" target="_blank">
+                             <i class="fa-brands fa-instagram"></i>
+                             <span>@Kedamawi_resort</span>
+                        </a>
+                        <a class="youtube" href="http://youtube.com" target="_blank">
+                             <i class="fa-brands fa-youtube"></i>
+                             <span>Kedamawi_resort</span>
+                        </a>
+                        <a class="gmail" href="http://mailto:eyobbirhanu238@gmail.com" target="_blank">
+                             <i class="fa-solid fa-envelope"></i>
+                             <span>Kedamawi_resort</span>
+                        </a>
+                        <a class="contact" href="tel://+251972971924" target="_blank">
+                            <i class="fa-solid fa-phone"><span>+251972971924</span></i>
+                        </a>
+                    </div>
+                    <hr>
+                    <li>&copy;2026 All rights are reserved</li>
+                    <li>Adama.Ethiopia</li>
+                </ul>
+            </nav>
+        </footer>
+    <script src="{{url_for('static',filename='js/boco.js')}}"></script>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>history</title>
+</head>
+<body>
+    <div class="ario">
+             <div class="maf">
+                 <img src="image 41.jpg" >
+                 <h4>Royal</h4>
+                 <span>cost: $40</span>
+             </div> 
+             <div class="maf">
+                 <img src="image 41.jpg" >
+                 <h4>Classic </h4>
+                 <span>cost: $40</span>
+             </div> 
+             <div class="maf">
+                 <img src="image 41.jpg" >
+                 <h4>Classic </h4>
+                 <span>cost: $40</span>
+             </div> 
+        </div>
+        <div class="ario">
+             <div class="maf">
+                 <img src="image 41.jpg" >
+                 <h4>Royal</h4>
+                 <span>cost: $40</span>
+             </div> 
+             <div class="maf">
+                 <img src="image 41.jpg" >
+                 <h4>Classic </h4>
+                 <span>cost: $40</span>
+             </div> 
+             <div class="maf">
+                 <img src="image 41.jpg" >
+                 <h4>Classic </h4>
+                 <span>cost: $40</span>
+             </div> 
+        </div>
+        <nav class="navbar">
+                 <div class="nav-announcement">
+                     <marquee direction="left">Kedamawi Resort: a place of pleasure</marquee>
+                 </div>
+               <!-- Brand Logo -->
+                 <div class="nav-logo">
+                     <img class="dd" src="/static/Images/roke.png" alt="Resort Logo">
+                 </div>
+                 <!-- Scrolling Announcement Banner -->
+                 <div class="nav-announcement">
+                     <marquee direction="left">Kedamawi Resort: a place of pleasure</marquee>
+                 </div>
+                 <!-- Navigation Interactive Links -->
+                 <ul class="nav-menu">
+                     <li><i id="menu-icon" class="fa-solid fa-bars menu-icons"></i></li>
+                     <li><a href="#">Dashboard</a></li>
+                     <li><input class="nav-search" placeholder="Search..."></li>
+                     <li class="Event"><a href="#">Event</a></li>
+                     <li class="Event"><a href="#">Destination</a></li>
+                     <li><a id="baba" href="{{url_for('gallery')}}">Gallery</a></li>
+                     <li><a href="#">Contact</a></li>
+                 </ul>
+                 <ul id="menu-list" class="hidden">
+                    <li><i id="malo" class="fa-solid fa-bars menu-icons"></i><span> Home</span></li>
+                    <li class="damot"><a id="book" href="{{url_for('booking')}}">Book a room</a></li>
+                    <li class="damot" ><a id="taye" href="{{url_for('checkout')}}">Checkout</a></li>
+                    <li class="damot"><a id="room" href="{{url_for('history')}}">History</a></li>
+                    <li class="damot">Feedback</li>
+                    <li class="damot">About us</li>
+                    <li><i id="menu-ion" class="fas fa-user-circle"> </i></li>
+                </ul>
+             </nav>
+</body>
+</html>

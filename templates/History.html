@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>history</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/history.css')}}">
+    </head>
+    <body>       
+         <h1>Welcome, {{ session['username'] }}</h1>
+         <h2>Your Booking History</h2>
+
+        {% if records %}
+        <table border="1" cellpadding="10">
+            <tr>
+                <th>Guest Name</th>
+                <th>Room Number</th>
+                <th>Room Type</th>
+            </tr>
+            {% for record in records %}
+            <tr>
+                <td>{{ record[2] }}</td> <!-- fullname -->
+                <td>{{ record[0] }}</td> <!-- room_number -->
+                <td>{{ record[1] }}</td> <!-- room_type -->
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>You have no past stay records with Mekdem Resort yet.</p>
+        {% endif %}
+
+         <br>
+         <button class="fagad"><a href="/Dashboard">Back to Dashboard</a></button>
+     </body>
+</html>

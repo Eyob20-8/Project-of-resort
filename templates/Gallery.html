@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/valomm.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+        <secion>
+             <h3>Mekdem resort Gallery</h3>
+             <div class="xeze">
+                 <button class="kaw">Swimmingpool</button>
+                 <button class="kaw">Restorant</button>
+                 <button class="kaw">Meeting hall</buttton>
+                 <button class="kaw">Spa</button>
+                 <button class="kaw">Rooms</button>
+                 <button class="kaw">Outdoor</button>
+             </div>
+             <div class="fengo">
+                 <img class="viewer" src="static/Images/image 10.jpg">
+                 <img class="viewer" src="static/Images/image 11.jpg">
+                 <img class="viewer" src="static/Images/image 12.jpg">
+                 <img id="photo acitive" class="viewer" src="static/Images/image 6.jpg">
+                 <img id="photo" class="viewer" src="static/Images/image 5.jpg">
+                 <img class="viewer" src="static/Images/image-4.jpg">
+                 <img class="viewer" src="static/Images/image 7.jpg">
+                 <img id="photo" class="viewer" src="static/Images/image 0.jpg">
+                 <img class="viewer" src="static/Images/image 20.jpg">
+                 <img class="viewer" src="static/Images/image 21.jpg">
+                 <img class="viewer" src="static/Images/image 22.jpg">
+                 <img class="viewer" src="static/Images/image-00.webp">
+                 <img class="viewer" src="static/Images/image 01.webp">
+                 <img class="viewer" src="static/Images/image 02.webp">
+                 <img class="viewer" src="static/Images/image-2.jpg">
+                 <img class="viewer" src="static/Images/image 40.jpg">
+                 <img class="viewer" src="static/Images/image 41.jpg">
+                 <img class="viewer" src="static/Images/image 42.jpg">
+            </div>
+        </secion>
+        <footer>
+            <nav>
+                <ul class="barba">
+                    <div class="social">
+                        <h3>More information</h3>
+                        <a class="kvr" href="http://instagram.com" target="_blank">
+                             <i class="fa-brands fa-instagram"></i>
+                             <span>@Kedamawi_resort</span>
+                        </a>
+                        <a class="youtube" href="http://youtube.com" target="_blank">
+                             <i class="fa-brands fa-youtube"></i>
+                             <span>Kedamawi_resort</span>
+                        </a>
+                        <a class="gmail" href="http://mailto:eyobbirhanu238@gmail.com" target="_blank">
+                             <i class="fa-solid fa-envelope"></i>
+                             <span>Kedamawi_resort</span>
+                        </a>
+                        <a class="contact" href="tel://+251972971924" target="_blank">
+                            <i class="fa-solid fa-phone"><span>+251972971924</span></i>
+                        </a>
+                    </div>
+                    <ul id="menu-list" class="hidden">
+                         <li>
+                            <a href={{url_for('Home')}}>
+                                 <i id="malo" class="fa-solid fa-bars menu-icons"></i>
+                                 <span> Home</span>
+                            </a>
+                            <a  href="{{url_for('Profile')}}">
+                                <i id="messob" class="fa-solid fa-user" ></i>
+                            </a>
+                         </li>
+                         <li class="damot"><a id="book" href="{{url_for('booking')}}">Book a room</a></li>
+                         <li class="damot" ><a id="taye" href="{{url_for('checkout')}}">Checkout</a></li>
+                         <li class="damot"><a id="room" href="{{url_for('history')}}">History</a></li>
+                         <li class="damot">Feedback</li>
+                         <li class="damot">About us</li>
+                     </ul>
+                    <hr>
+                    <li>&copy;2026 All rights are reserved</li>
+                    <li>Adama.Ethiopia</li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>

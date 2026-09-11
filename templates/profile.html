@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="referer" content="rights">
+        <link rel="stylesheet" href="personal.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <title>My profile</title>
+    </head>
+    <body>
+        <p>My account</p>
+        <b><i id="css" class="fa-solid fa-user"></i><h1>Not verifed?</h1></b>
+        <form class="confirm" id="start" method="POST" action="{{ url_for('profile') }}">
+                <input id="Username" name="username" placeholder="Username" value="Eyob" requred>
+                <input id="Password" name="password" placeholder="Create password" type="password" value="1234" required>
+                <input id="Confirmpassword" placeholder="Confirm password" type="password" required>
+                <input id="Email" name="email" placeholder="Email address" required>
+                <button type="submit" id="finish" class="lonely">Register</button>
+        </form>
+    </body>
+</html>
