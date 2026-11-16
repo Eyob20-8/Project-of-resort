@@ -1,75 +1,215 @@
-document.addEventListener("DOMContentLoaded", function(){
-// Get DOM elements
-const adultInput = document.getElementById("adult");
-const childInput = document.getElementById("child");
-const dateInput = document.getElementById("date");
-const bookBtn = document.getElementById("book-btn");
-const errorMsg = document.getElementById("error-msg");
-const totalMsg = document.getElementById("total-msg");
 
-// Example prices
-const adultPrice = 100;
-const childPrice = 50;
+"use strict";
 
-bookBtn.addEventListener("click", () => {
-    errorMsg.textContent = "";
-    totalMsg.textContent = "";
+document.addEventListener("DOMContentLoaded", function () {
 
-    const adults = parseInt(adultInput.value);
-    const children = parseInt(childInput.value);
-    const date = dateInput.value;
+    // ==========================================
+    // 1. HAMBURGER MENU
+    // ==========================================
+// ==========================================
+// 1. HAMBURGER MENU
+// ==========================================
 
-    // Validation
-    if (!date) {
-        errorMsg.textContent = "Please select a date!";
-        return;
-    }
-    if (adults < 1 || adults > 10) {
-        errorMsg.textContent = "At least 1 adult is required.";
-        return;
-    }
-    if (children <= 0) {
-        errorMsg.textContent = "Child count cannot be negative.";
+    const menuIcon = document.getElementById("menu-icon");
+    const menuList = document.getElementById("menu-list");
+    const backLink = document.getElementById("malo-link");
+
+    if (!menuIcon || !menuList) {
+        console.error("Menu icon or menu list was not found.");
         return;
     }
 
-    // Calculate total price
-    const total = adults * adultPrice + children * childPrice;
-    //totalMsg.innerHTML = "Total price: $" + total;
-    totalMsg.innerHTML ="Book now" 
-});
-});
-document.addEventListener("DOMContentLoaded", function() {
-  const menuIcon = document.getElementById("menu-icon");
-  const menuList = document.getElementById("menu-list");
-  const backButton = document.getElementById("malo");
+    function openMenu() {
+        menuList.classList.remove("hidden");
+        menuIcon.setAttribute("aria-expanded", "true");
+    }
 
-  menuIcon.addEventListener("click", function() {
-    menuList.classList.toggle("hidden");
-  });
-    //const menuItems = menuList.querySelectorAll("li");
-    backButton.addEventListener("click", function(Event) {
-    Event.preventDefault();
-
-    menuList.classList.add("hidden"); // close menu
-    });
-    window.addEventListener("click", function(event) {
-    // Check if the menu is currently open
-    if (!menuList.classList.contains("hidden")) {
-      // If the click happened OUTSIDE the menu list AND OUTSIDE the menu icon, close it
-      if (!menuList.contains(event.target) && !menuIcon.contains(event.target)) {
+    function closeMenu() {
         menuList.classList.add("hidden");
-      }
+        menuIcon.setAttribute("aria-expanded", "false");
     }
-  });
-});
-  
-document.addEventListener("DOMContentLoaded", function() {
-    const Evt=document.querySelectorAll("li.Event");
-    Evt.forEach(function(item){
-        item.addEventListener("click",function(){
-            alert(`Upcoming....`);
+
+    function toggleMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (menuList.classList.contains("hidden")) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    }
+
+    // Initialize the menu as closed
+    closeMenu();
+
+    // Make the hamburger icon keyboard accessible
+    menuIcon.style.cursor = "pointer";
+    menuIcon.setAttribute("role", "button");
+    menuIcon.setAttribute("tabindex", "0");
+    menuIcon.setAttribute("aria-controls", "menu-list");
+
+    // Click the main hamburger icon
+    menuIcon.addEventListener("click", toggleMenu);
+
+    // Support Enter and Space keys
+    menuIcon.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+            toggleMenu(event);
+        }
+    });
+
+    // Close using the Menu icon inside the dropdown
+    if (backLink) {
+        backLink.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            closeMenu();
+        });
+    }
+
+    // Keep clicks inside the dropdown from reaching document
+    menuList.addEventListener("click", function (event) {
+        event.stopPropagation();
+    });
+
+    // Close when clicking anywhere outside the menu
+    document.addEventListener("click", function (event) {
+        if (
+            !menuList.contains(event.target) &&
+            !menuIcon.contains(event.target)
+        ) {
+            closeMenu();
+        }
+    });
+
+    // Close with Escape
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+    });
+
+    console.log("Hamburger menu initialized successfully.");
+    document.querySelectorAll(".Event").forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            alert("Upcoming event...");
         });
     });
+   
+
+    // ==========================================
+    // 2. ADULT AND CHILD COUNTERS
+    // ==========================================
+
+    document.querySelectorAll(".counter-btn").forEach(function (button) {
+        button.addEventListener("click", function () {
+            const targetId = button.dataset.target;
+            const change = Number(button.dataset.change);
+            const input = document.getElementById(targetId);
+
+            if (!input || !Number.isFinite(change)) return;
+
+            const min = Number(input.min || 0);
+            const max = Number(input.max || 999);
+            const current = Number(input.value || 0);
+
+            input.value = Math.max(
+                min,
+                Math.min(max, current + change)
+            );
+
+            input.dispatchEvent(new Event("change", {
+                bubbles: true
+            }));
+        });
+    });
+
+    // ==========================================
+    // 3. CHECK AVAILABILITY FORM
+    // ==========================================
+
+    const form = document.getElementById("availability-form");
+    const adultInput = document.getElementById("adult");
+    const childInput = document.getElementById("child");
+    const dateInput = document.getElementById("date");
+    const errorMsg = document.getElementById("error-msg");
+    const totalMsg = document.getElementById("total-msg");
+
+    function getLocalDate() {
+        const now = new Date();
+
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const day = String(now.getDate()).padStart(2, "0");
+
+        return `${year}-${month}-${day}`;
+    }
+
+    if (dateInput) {
+        dateInput.min = getLocalDate();
+    }
+
+    if (form) {
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (errorMsg) errorMsg.textContent = "";
+            if (totalMsg) totalMsg.textContent = "";
+
+            const adults = Number(adultInput?.value);
+            const children = Number(childInput?.value);
+            const checkin = dateInput?.value;
+
+            if (
+                !adultInput ||
+                !childInput ||
+                !dateInput ||
+                !Number.isInteger(adults) ||
+                !Number.isInteger(children) ||
+                adults < 1 ||
+                adults > 10 ||
+                children < 0 ||
+                children > 4
+            ) {
+                if (errorMsg) {
+                    errorMsg.textContent = "Please enter valid guest numbers.";
+                }
+                return;
+            }
+
+            if (!checkin) {
+                if (errorMsg) {
+                    errorMsg.textContent = "Please select your check-in date.";
+                }
+
+                dateInput?.focus();
+                return;
+            }
+
+            if (checkin < getLocalDate()) {
+                if (errorMsg) {
+                    errorMsg.textContent = "Check-in date cannot be in the past.";
+                }
+                return;
+            }
+
+            if (totalMsg) {
+                totalMsg.textContent =
+                    `Search details: ${adults} adult(s), ` +
+                    `${children} child(ren), check-in ${checkin}. ` +
+                    "Your details are valid. Live room availability " +
+                    "must be checked by the server.";
+            }
+
+            console.log("Availability form validated:", {
+                adults: adults,
+                children: children,
+                checkin: checkin
+            });
+        });
+    }
+
+    console.log("Kedamawi Resort JavaScript loaded.");
 });
- 
