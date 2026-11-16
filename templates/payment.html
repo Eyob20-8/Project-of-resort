@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | Kedamawi Resort</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f3f6f4;
+            color: #26352e;
+        }
+
+        header {
+            background: #123d32;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 45px auto;
+            padding: 20px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading h1 {
+            color: #123d32;
+            margin-bottom: 10px;
+        }
+
+        .payment-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.06);
+        }
+
+        h2 {
+            font-size: 19px;
+            margin-bottom: 22px;
+            color: #123d32;
+        }
+
+        .detail {
+            display: flex;
+            justify-content: space-between;
+            margin: 17px 0;
+            font-size: 14px;
+        }
+
+        .detail span:first-child {
+            color: #78847d;
+        }
+
+        .total {
+            border-top: 1px solid #e5eae6;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .total strong {
+            color: #176b50;
+            font-size: 24px;
+        }
+
+        .method {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            border: 1px solid #dfe6e1;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 13px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .method:hover {
+            border-color: #176b50;
+            background: #f5faf7;
+        }
+
+        .method input {
+            accent-color: #176b50;
+        }
+
+        .method span {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .method small {
+            display: block;
+            color: #78847d;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        .pay-button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 9px;
+            background: #176b50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .pay-button:hover {
+            background: #104d39;
+        }
+
+        .secure {
+            text-align: center;
+            color: #78847d;
+            font-size: 12px;
+            margin-top: 18px;
+        }
+
+        footer {
+            background: #123d32;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 50px;
+        }
+
+        @media(max-width: 700px) {
+            .payment-layout {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 20px;
+            }
+
+            .container {
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">KEDAMAWI RESORT</div>
+    <a href="{{ url_for('Dashboard') }}">Back to Dashboard</a>
+</header>
+
+<div class="container">
+
+    <div class="heading">
+        <h1>Complete Your Payment</h1>
+        <p>You're one step away from confirming your reservation.</p>
+    </div>
+
+    <div class="payment-layout">
+
+        <!-- Booking Summary -->
+        <div class="card">
+            <h2>Booking Summary</h2>
+
+            <div class="detail">
+                <span>Guest Name</span>
+                <strong>{{ bookings.fullname }}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Room Number</span>
+                <strong>{{ bookings.Room_number }}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Room Type</span>
+                <strong>{{ bookings.Room_type }}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Check-in</span>
+                <strong>{{ bookings.checkin }}</strong>
+            </div>
+
+            <div class="detail">
+                <span>Check-out</span>
+                <strong>{{ bookings.checkout }}</strong>
+            </div>
+
+            <div class="detail total">
+                <span>Total Amount</span>
+                <strong>ETB {{ amount }}</strong>
+            </div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="card">
+            <h2>Select Payment Method</h2>
+
+            <form method="POST" action="#">
+
+                <label class="method">
+                    <input type="radio" name="payment_method"
+                           value="telebirr" required>
+                    <div>
+                        <span>Telebirr</span>
+                        <small>Pay using your Telebirr account</small>
+                    </div>
+                </label>
+
+                <label class="method">
+                    <input type="radio" name="payment_method"
+                           value="bank">
+                    <div>
+                        <span>Bank Transfer</span>
+                        <small>Transfer to the resort's bank account</small>
+                    </div>
+                </label>
+
+                <label class="method">
+                    <input type="radio" name="payment_method"
+                           value="chapa">
+                    <div>
+                        <span>Chapa</span>
+                        <small>Secure online payment</small>
+                    </div>
+                </label>
+
+                <button type="submit" class="pay-button">
+                    Proceed to Payment
+                </button>
+
+            </form>
+
+            <div class="secure">
+                🔒 Your payment should be processed securely.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 Kedamawi Resort | Adama, Ethiopia
+</footer>
+
+</body>
+</html>

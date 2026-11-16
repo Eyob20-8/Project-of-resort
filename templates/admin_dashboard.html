@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kedamawi Resort-Admin_Dashboard</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/new.css')}}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+        <section>
+            <nav class="navbar">
+                 <div class="nav-announcement">
+                     <marquee direction="left">Kedamawi Resort: a place of pleasure</marquee>
+                 </div>
+                 <div class="nav-main-row">
+                     <!-- Brand Logo -->
+                     <div class="nav-logo">
+                         <img class="dd" src="/static/Images/kk.png" alt="">
+                     </div>
+                 <!-- Navigation Interactive Links -->
+                     <ul class="nav-menu">
+                         <li class="profile-link">
+                            <i class="fa-solid fa-user"></i>
+                            <a href="{{url_for('home')}}">Profile</a>
+                         </li>
+                         <li><a href="{{url_for('admin_dashboard')}}">Dashboard</a></li>
+                         <li><input class="nav-search" placeholder="Search..."></li>
+                         <li class="Event"><a href="#">Event</a></li>
+                         <li class="Event"><a href="#">Destination</a></li>
+                         <li class="manage"><a href="{{url_for('admin_panel')}}">Admin panel</a></li>
+                         <li><a id="baba" href="{{url_for('gallery')}}">Gallery</a></li>
+                         <li><a href="{{url_for('login')}}">Log-out</a></li>
+                     </ul>         
+                </div>
+             </nav>
+             <nav class="kersa">
+             <section class="availability-section">
+              <!-- Resort image and introduction -->
+                 <div class="hero">
+                     <img
+                      class="resort-image"
+                      src="{{ url_for('static', filename='Images/imaga.jpg') }}"
+                      alt="Kedamawi Resort"
+                     >
+
+                     <div class="hero-overlay">
+                         <span class="eyebrow">WELCOME TO KEDAMAWI</span>
+                         <h1>Find your perfect stay</h1>
+                         <p>Relax, recharge, and experience exceptional hospitality.</p>
+                     </div>
+                 </div>
+
+                 <!-- Availability search card -->
+                 <form id="availability-form" class="booking-card">
+                     <div class="booking-heading">
+                         <div>
+                             <h2>Plan your stay</h2>
+                             <p>Choose your guests and arrival date.</p>
+                         </div>
+                         <i class="fa-solid fa-calendar-check heading-icon"></i>
+                     </div>
+
+                     <div class="booking-fields">
+
+                      <!-- Adults -->
+                        <div class="field">
+                             <label for="adult">
+                                 <i class="fa-solid fa-user"></i>
+                                   Adults
+                             </label>
+
+                             <div class="number-control">
+                                 <button type="button"
+                                     class="counter-btn"
+                                     data-target="adult"
+                                     data-change="-1"
+                                     aria-label="Remove an adult">−</button>
+
+                                 <input
+                                     id="adult"
+                                     name="adults"
+                                     type="number"
+                                     min="1"
+                                     max="10"
+                                     value="1"
+                                     required
+                                 >
+
+                                 <button type="button"
+                                     class="counter-btn"
+                                     data-target="adult"
+                                     data-change="1"
+                                     aria-label="Add an adult">+</button>
+                             </div>
+                             <small>Age 18 and above</small>
+                         </div>
+
+                        <!-- Children -->
+                         <div class="field">
+                             <label for="child">
+                                 <i class="fa-solid fa-child"></i>
+                                    Children
+                            </label>
+
+                            <div class="number-control">
+                                 <button type="button"
+                                     class="counter-btn"
+                                     data-target="child"
+                                     data-change="-1"
+                                     aria-label="Remove a child">−</button>
+
+                                 <input
+                                     id="child"
+                                     name="children"
+                                     type="number"
+                                     min="0"
+                                     max="4"
+                                     value="0"
+                                     required
+                                 >
+
+                                 <button type="button"
+                                     class="counter-btn"
+                                     data-target="child"
+                                     data-change="1"
+                                     aria-label="Add a child">+</button>
+                             </div>
+
+                            <small>Age 0–17</small>
+                            </div>
+
+                            <!-- Arrival date -->
+                                 <div class="field date-field">
+                                     <label for="date">
+                                         <i class="fa-regular fa-calendar"></i>
+                                             Check-in date
+                                     </label>
+
+                                     <input
+                                        id="date"
+                                        name="checkin"
+                                        type="date"
+                                        required
+                                     >
+
+                                     <small>Your arrival date</small>
+                                 </div>
+                                     <!-- Search button -->
+                                 <div class="button-field">
+                                     <button id="book-btn" type="submit">
+                                         <i class="fa-solid fa-magnifying-glass"></i>
+                                              Check availability
+                                     </button>
+                                 </div>
+
+                             </div>
+
+                             <!-- Accessible feedback messages -->
+                             <div id="error-msg"
+                                 class="message error-message"
+                                 role="alert"
+                                 aria-live="polite"></div>
+
+                             <div id="total-msg"
+                                 class="message success-message"
+                                 role="status"
+                                 aria-live="polite"></div>
+
+                             <p class="privacy-note">
+                                 <i class="fa-solid fa-shield-halved"></i>
+                                    Your stay starts with a simple search.
+                             </p>
+
+                     </form>
+                </section>
+
+                <hr>
+
+                <h1 class="mashap">Enjoy your stay with us</h1>
+                <p>Welcome to our resort, where comfort and delight await you. We will provide heartfelt service to all our guests. The special thing about our resort is that we take care of every guest like a king, with comfortable beds and a relaxing swimming pool. Let's make it a memorable part of your life.</p>
+                <hr>
+                <ul class="faf">
+                    <li><img class="view" src="/static/Images/image 1.jpg"><p>Enjoy a beautiful beach view, with sunlit trees, a sparkling pool, and lively scenes of people and children at play."</p></li>
+                    <li><img class="view" src="/static/Images/image 2.jpg"><p>The Building offer a delightful view of the forests and the sun rise on the morning.</p></li>
+                    <li><img class="view" src="/static/Images/image 3.jpg"><p>A breathtaking view of sunset over the beach with gentle night breath.</p></li>
+                
+                </ul>
+                <hr>
+            </nav>    
+        </section>
+        <footer class="site-footer">
+             <nav class="footer-nav" aria-label="Footer information">
+                 <div class="social">
+                     <h3>More Information</h3>
+
+                     <a class="kvr"
+                         href="https://www.instagram.com/"
+                         target="_blank"
+                         rel="noopener noreferrer">
+                         <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                         <span>@Kedamawi_resort</span>
+                     </a>
+
+                     <a class="youtube"
+                         href="https://www.youtube.com/"
+                         target="_blank"
+                         rel="noopener noreferrer">
+                         <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                         <span>Kedamawi Resort</span>
+                     </a>
+
+                     <a class="gmail"
+                         href="mailto:kedamawiresort@gmail.com">
+                         <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                         <span>kedamawiresort@gmail.com</span>
+                     </a>
+
+                     <a class="contact" href="tel:+251972971924">
+                         <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                         <span>+251 972 971 924</span>
+                         </a>
+                 </div>
+
+                 <hr class="noh">
+
+                 <div class="footer-bottom">
+                     <p>&copy; 2026 Kedamawi Resort. All rights reserved.</p>
+                     <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Adama, Ethiopia</p>
+                     <p>Version 1</p>
+                 </div>
+             </nav>
+        </footer>
+        <script src="{{ url_for('static', filename='js/new.js') }}?v=11"></script>
+    </body>
+</html >

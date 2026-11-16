@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kedamawi Resort - Admin Panel</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/new.css')}}" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    </head>
+    <body>
+        
+        <ul id="menu-list">
+            <li><a class="dash" href="{{ url_for('admin_dashboard') }}">
+                <i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+            <li><a class="dynamic-link"  href="{{ url_for('admin_room') }}">
+                <i class="fa-solid fa-bed"></i> Room Management
+            </a></li>
+            <li><a class="dynamic-link" href="{{ url_for('admin_bookings') }}">
+                <i class="fa-solid fa-calendar-check"></i> Booking Management
+            </a></li>
+            <li><a class="dynamic-link" id="user" href="{{ url_for('admin_users') }}">
+                <i class="fa-solid fa-users"></i> User Management
+            </a></li>
+            <li><a class="dynamic-link" href="{{ url_for('admin_payments') }}">
+                <i class="fa-solid fa-credit-card"></i> Payments
+            </a></li>
+            <li><a class="dynamic-link" href="{{ url_for('admin_feedback') }}">
+                <i class="fa-solid fa-comments"></i> Guest Feedback
+            </a></li>
+            <li><a class="dynamic-link" href="{{ url_for('check_gallery') }}">
+                <i class="fa-solid fa-images"></i> Gallery Management
+            </a></li>
+            <li><a class="dynamic-link" href="{{ url_for('admin_reports') }}">
+                <i class="fa-solid fa-chart-line"></i> Reports
+            </a></li>
+            <li><a class="dynamic-link" href="#">
+                <i class="fa-solid fa-user-gear"></i> Admin Profile
+            </a></li>
+            <li><a class="dynamiclink" href="{{ url_for('logout') }}">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </a></li>
+        </ul>
+        <!-- FIX: Added missing display panel container for your dynamic page requests -->
+        <div class="right-panel" id="content-display">
+        </div>
+
+        <script src="{{ url_for('static', filename='js/new.js') }}?v=11"></script>
+    </body>
+</html>

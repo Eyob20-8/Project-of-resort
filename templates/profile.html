@@ -2,19 +2,91 @@
 <html>
     <head>
         <meta name="referer" content="rights">
-        <link rel="stylesheet" href="personal.css">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/personal.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <title>My profile</title>
     </head>
     <body>
-        <p>My account</p>
-        <b><i id="css" class="fa-solid fa-user"></i><h1>Not verifed?</h1></b>
-        <form class="confirm" id="start" method="POST" action="{{ url_for('profile') }}">
-                <input id="Username" name="username" placeholder="Username" value="Eyob" requred>
-                <input id="Password" name="password" placeholder="Create password" type="password" value="1234" required>
-                <input id="Confirmpassword" placeholder="Confirm password" type="password" required>
-                <input id="Email" name="email" placeholder="Email address" required>
-                <button type="submit" id="finish" class="lonely">Register</button>
+        <b>My account</b>
+        <form id="uploadForm" enctype="multipart/form-data">
+             <div class="profile-container">
+                 {% if user.profile_image!="default.png" and user.profile_image %}
+                     <img
+                         id="profileImage"
+                         src="{{ url_for('static', filename=user.profile_image) }}"
+                         alt="Profile"
+                         class="profile-photo">
+                     <i
+                         id="profileIcon"
+                         class="fa-solid fa-user hidden"
+                     ></i>
+                 {% else %}
+                     <img
+                         id="profileImage"
+                         src=""
+                         alt="Profile"
+                         class="profile-photo hidden"
+                     >
+                     <i
+                         id="profileIcon"
+                         class="fa-solid fa-user"
+                     ></i>
+                 {% endif %}
+
+                 <label for="imageUpload" class="upload-overlay">
+                     <i class="fa-solid fa-camera"></i>
+                 </label>
+                 <input
+                        type="file"
+                        id="imageUpload"
+                        name="image"
+                        accept="image/*"
+                        style="display: none;">
+            </div>
         </form>
+        <b id="verify" class="bol">
+             {% if user.profile_image!="default.png" and user.profile_image %}
+                 Verified
+                 <i class="fa-solid fa-circle-check"
+                 style="color: #1DA1F2;"></i>
+            {% else %}
+                 Not verified?
+             {% endif %}
+        </b>
+        
+
+        <form class="confirm" id="start" method="POST" action="{{ url_for('profile') }}">
+                <div class="field"> 
+                    <i class="fa-solid fa-user field-icon"></i> 
+                    <input id="Username" name="username" placeholder="Username" value="{{ user.username or '' }}" required> 
+                    <span class="echo" id="usernameEcho"></span> 
+                </div> 
+
+                <div class="field">
+                    <i class="fa-solid fa-lock field-icon"></i>
+                    <input id="Password" name="password" placeholder="Create password" autocomplete="new-password" type="password" value="" required>
+                    <span class="echo" id="passwordEcho"></span>
+                </div>
+
+                <div class="field">
+                    <i class="fa-solid fa-lock field-icon"></i>
+                    <input id="Confirmpassword" name="confirm_password" placeholder="Confirm password" autocomplete="new-password" type="password" required>
+                    <span class="echo" id="confirmpasswordEcho"></span>
+                </div>
+
+                <div class="field">
+                    <i class="fa-solid fa-envelope field-icon"></i>
+                    <input id="Email" name="email" placeholder="Email address" value="{{ user.email or '' }}" required>
+                    <span class="echo" id="emailEcho"></span>
+                </div>
+                <div class="field">
+                    <i id="fanIcon" class="fa-solid fa-id-card"></i>
+                    <input id="FanNumber" name="fan_number" placeholder="FAN Number" type="number" required>
+                    <span class="echo" id="fanNumberEcho"></span>
+                </div>
+
+                <button type="submit" id="finish" class="lonely">Update</button>
+        </form>
+        <script src="{{url_for('static',filename='js/pro.js')}}" defer></script>
     </body>
 </html>

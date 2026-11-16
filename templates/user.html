@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kedamawi Resort - User Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/new.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">       
+</head>
+
+<body>
+    <main class="user-management">
+
+        <div class="user-header">
+            <div>
+                <h2>
+                    <i class="fa-solid fa-users"></i>
+                    User Management
+                </h2>
+                <p>View and manage registered users.</p>
+            </div>
+
+            <div class="user-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                    type="search"
+                    id="userSearch"
+                    placeholder="Search by username or email..."
+                    aria-label="Search users">
+            </div>
+        </div>
+
+        <div class="user-table-container">
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="userTable">
+                    <tr>
+                        <td colspan="5" class="loading-message">
+                            <i class="fa-solid fa-spinner fa-spin"></i>
+                            Loading users...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p id="userMessage" role="status" aria-live="polite"></p>
+
+    </main>
+</body>
+</html>

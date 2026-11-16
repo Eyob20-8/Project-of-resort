@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Management</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 25px;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #243047;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 25px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        #table {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .lax, .mux, .muxa {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .vat, .mux > div, .muxa > div {
+            padding: 22px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        #table span {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        #table p {
+            margin: 12px 0 0;
+            font-size: 28px;
+            font-weight: bold;
+            color: #1d4ed8;
+        }
+
+        main {
+            margin-top: 35px;
+            padding: 22px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+            overflow-x: auto;
+        }
+
+        main label {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #custan table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+        }
+
+        #custan th, #custan td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        #custan th {
+            background: #eff4fa;
+            color: #334155;
+            font-size: 14px;
+        }
+
+        #custan tr:hover td {
+            background: #f8fafc;
+        }
+
+        @media (max-width: 800px) {
+            #table {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 550px) {
+            body {
+                padding: 15px;
+            }
+
+            #table {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <label class="label">Booking Management</label>
+
+    <section id="table">
+        <div class="lax">
+            <div class="vat">
+                <span>Total Booking Requests</span>
+                <p id="var">0</p>
+            </div>
+        </div>
+
+        <div class="mux">
+            <div>
+                <span>Pending Requests</span>
+                <p id="vandik">0</p>
+            </div>
+
+            <div>
+                <span>Cancelled Requests</span>
+                <p id="lol">0</p>
+            </div>
+        </div>
+
+        <div class="muxa">
+            <div>
+                <span>Checked-out Guests</span>
+                <p id="mk">0</p>
+            </div>
+
+            <div>
+                <span>Checked-in Guests</span>
+                <p id="kopa">0</p>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <label>Booking Customers</label>
+
+        <div class="custan" id="custan">
+            <p>Loading booking records...</p>
+        </div>
+    </main>
+
+</body>
+</html>

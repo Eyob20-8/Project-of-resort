@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kedamawi Resort - Room Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/new.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="room" id="mains">
+
+        <div class="row1">
+
+            <div class="room-card total-card">
+                <div class="room-icon">
+                    <i class="fa-solid fa-hotel"></i>
+                </div>
+                <div>
+                    <h2>Total Rooms</h2>
+                    <p id="Total">Loading...</p>
+                </div>
+            </div>
+
+            <div class="room-card occupied-card">
+                <div class="room-icon">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+                <div>
+                    <h2>Occupied Rooms</h2>
+                    <p id="Occ">Loading...</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row2">
+
+            <div class="room-card available-card">
+                <div class="room-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                    <h2>Available Rooms</h2>
+                    <p id="Available">Loading...</p>
+                </div>
+            </div>
+
+            <div class="room-card maintenance-card">
+                <div class="room-icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+                <div>
+                    <h2>Maintenance Rooms</h2>
+                    <p id="mainten">Loading...</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <section class="room-search-section">
+
+        <h2 class="title">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Check Rooms
+        </h2>
+
+        <p>Search for room details by room number or room type.</p>
+
+        <form class="aura" id="roomSearchForm">
+
+            <div class="search-input">
+                <i class="fa-solid fa-door-closed"></i>
+                <input
+                    type="search"
+                    id="room_number"
+                    name="room_number"
+                    placeholder="Enter the room number"
+                    aria-label="Room number"
+                >
+            </div>
+
+            <div class="search-select">
+                <i class="fa-solid fa-layer-group"></i>
+                <select id="room_type" name="room_type"
+                        aria-label="Room type">
+                    <option value="All">All Room Types</option>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Deluxe">Deluxe</option>
+                </select>
+            </div>
+
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search
+            </button>
+
+        </form>
+
+        <p id="searchMessage" role="status" aria-live="polite"></p>
+
+        <div id="roomResults">
+            <!-- JavaScript inserts the results table here. -->
+        </div>
+
+    </section>
+
+</body>
+</html>

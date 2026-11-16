@@ -1,35 +1,166 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="{{url_for('static',filename='css/valomm.css')}}">
-</head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-out and Payment</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/valomm.css') }}">
+</head>
+
 <body>
     <nav class="desak">
-        <div class="feres"> 
-            <h1>Check-out</h1> 
-            <form id="reo"  action="javascript:void(0);" >
-                <div class="mertho"> 
+        <div class="feres">
+            <h1>Check-out and Payment</h1>
+
+            <form id="reo"
+                  method="POST"
+                  action="{{ url_for('checkout') }}"
+                  enctype="multipart/form-data">
+
+                <div class="mertho">
                     <label for="nam">Username</label>
-                    <input id="nam" class="manega" placeholder="Enter your name">
+                    <input
+                        id="nam"
+                        name="username"
+                        class="manega"
+                        type="text"
+                        placeholder="Enter your username"
+                        required
+                    >
                 </div>
+
                 <div class="mertho">
                     <label for="prom">Room number</label>
-                    <input id="prom" class="manega" placeholder="Enter Room number">
-                </div> 
-                <button class="Sent" id="submita" type="submit" >Check</button>
+                    <input
+                        id="prom"
+                        name="room_number"
+                        class="manega"
+                        type="number"
+                        min="101"
+                        max="200"
+                        placeholder="Enter room number"
+                        required
+                    >
+                </div>
+
+                <section class="payment-section">
+                    <h2>Payment details</h2>
+
+                    <p class="help-text">
+                        Complete your payment when checking out of the resort.
+                        Choose your payment method below.
+                    </p>
+
+                    <div class="form-group">
+                        <label for="payment_method">Payment method</label>
+                        <select
+                            id="payment_method"
+                            name="payment_method"
+                            required
+                        >
+                            <option value="">Choose payment method</option>
+                            <option value="cash">Cash</option>
+                            <option value="chapa">Chapa</option>
+                            <option value="telebirr">Telebirr</option>
+                            <option value="bank_transfer">Bank transfer</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="receipt">
+                            Payment receipt (optional)
+                        </label>
+
+                        <input
+                            id="receipt"
+                            type="file"
+                            name="receipt"
+                            accept=".pdf,.png,.jpg,.jpeg,application/pdf,image/png,image/jpeg"
+                        >
+
+                        <small class="help-text">
+                            Accepted formats: PDF, PNG, JPG, JPEG.
+                            Maximum size: 5 MB.
+                        </small>
+                    </div>
+
+                    <div class="notice" role="note">
+                        <strong>Important:</strong>
+                        Payment must be confirmed by resort staff or
+                        verified with the payment provider before checkout
+                        is finalized. Uploading a receipt alone does not
+                        confirm payment.
+                    </div>
+                </section>
+
+                <div id="error-msg"
+                     class="error-message"
+                     role="alert"
+                     aria-live="polite"></div>
+
+                <button id="button" class="end" type="submit">
+                    Submit Checkout and Payment
+                </button>
             </form>
         </div>
-        <div class="ter">
-            <div class="star-rating">
-                <span data-value="1">&#9733</span>
-                <span data-value="2">&#9733</span>
-                <span data-value="3">&#9733</span> 
-                <span data-value="4">&#9733</span> 
-                <span data-value="5">&#9733</span>
-            </div> 
-            <p id="rating-value">Rating: 0</p> 
-        </div> 
-    </nav> 
-    <script src="{{url_for('static',filename='js/dima.js')}}"></script> 
-</body> 
+
+    </nav>
+
+    <script src="{{ url_for('static', filename='js/dima.js') }}"></script>
+
+    <script>
+        const form = document.getElementById("reo");
+        const username = document.getElementById("nam");
+        const roomNumber = document.getElementById("prom");
+        const paymentMethod = document.getElementById("payment_method");
+        const receipt = document.getElementById("receipt");
+        const errorMsg = document.getElementById("error-msg");
+
+        form.addEventListener("submit", function (event) {
+            errorMsg.textContent = "";
+
+            if (!username.value.trim()) {
+                event.preventDefault();
+                errorMsg.textContent = "Please enter your username.";
+                return;
+            }
+
+            const room = Number(roomNumber.value);
+
+            if (!Number.isInteger(room) || room < 101 || room > 200) {
+                event.preventDefault();
+                errorMsg.textContent = "Enter a valid room number.";
+                return;
+            }
+
+            if (!paymentMethod.value) {
+                event.preventDefault();
+                errorMsg.textContent = "Please choose a payment method.";
+                return;
+            }
+
+            if (receipt.files.length > 0) {
+                const file = receipt.files[0];
+                const allowedExtensions = /\.(pdf|png|jpe?g)$/i;
+                const maxSize = 5 * 1024 * 1024;
+
+                if (!allowedExtensions.test(file.name)) {
+                    event.preventDefault();
+                    errorMsg.textContent =
+                        "Upload a PDF, PNG, JPG, or JPEG receipt.";
+                    return;
+                }
+
+                if (file.size > maxSize) {
+                    event.preventDefault();
+                    errorMsg.textContent =
+                        "The receipt must be no larger than 5 MB.";
+                }
+            }
+        });
+    </script>
+</body>
 </html>
