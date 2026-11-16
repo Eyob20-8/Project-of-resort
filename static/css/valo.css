@@ -1,8 +1,11 @@
 body{
     margin: 0px;
+    zoom:1;
     font-family:"Poppins";
 }
 .barba{
+    margin-top: 20px;
+    margin-bottom: 20px;
     list-style: none;
 }
 .kvr:hover{
@@ -19,7 +22,7 @@ body{
 }
 .mvr{
     position: fixed;
-    width: 100%;
+    width: 150%;
     margin: 0px;
     top: 0;
     display:flex;
@@ -62,7 +65,7 @@ body{
     margin-right: 10px;
     cursor: pointer;
 }
-.masd{
+masd{
     background-color: #219bd0;
     display: inline-flex;
     gap:3px;
@@ -128,23 +131,6 @@ footer{
 .cjf:hover{
     background-color: brown;
 }
-#menu-list{
-    background-color: hsl(200, 43%, 95%);
-    position:absolute;
-    margin: 0;
-    left:0;
-    top:0;
-    list-style: none;
-    padding-bottom:100% ;
-    width:300px;
-    padding-top: 30px;
-    font-size: 32px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.hidden{
-    display:none;
-    font-family: Arial, Helvetica, sans-serif;
-}
 #menu-icon{
     cursor: pointer;
     margin-right: 8px; /* Adjust the pixels (px) to get the exact spacing you want */
@@ -156,6 +142,7 @@ footer{
     color:#130202;
 }
 hr{
+    margin:20px;
     width: 80%;
 }
 .mashap{
@@ -173,6 +160,7 @@ p{
     display: flex;
     padding-left: 30px;
     gap: 40px;
+    margin-top:30px;
     margin-bottom:20px;
     list-style: none;
 }
@@ -212,7 +200,7 @@ footer hr{
 .navbar {
     display: flex;
     flex-direction: column; /* Stacks row 1 on top of row 2 */
-    width: 100%;
+    width: 150%;
     background-color: #219bd0;
     font-family: "Poppins";
     font-size:1.25rem;
@@ -237,6 +225,8 @@ footer hr{
     width: 100%;
     box-sizing: border-box;
     text-align: left;
+    position: relative;
+    overflow: visible
 }
 
 /* Keep your existing style definitions for .nav-menu, .nav-logo, etc. here */
@@ -323,6 +313,483 @@ a[href*="profile"] {
     gap:10px;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --green: #174c3a;
+    --green-dark: #103728;
+    --gold: #c9a66b;
+    --text: #26372f;
+    --muted: #77847d;
+    --border: #dce5df;
+    --background: #f5f7f4;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+.availability-section {
+    width: min(1100px, 92%);
+    margin: 55px auto;
+}
+
+/* Resort image */
+
+.hero {
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.resort-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(
+        90deg,
+        rgba(10, 35, 25, 0.72),
+        rgba(10, 35, 25, 0.22)
+    );
+}
+
+.eyebrow {
+    color: #f0d5a4;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero-overlay h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    margin-bottom: 12px;
+}
+
+.hero-overlay p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Booking card */
+
+.booking-card {
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 30px;
+    margin: -55px 28px 0;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(22, 54, 39, 0.12);
+}
+
+.booking-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.booking-heading h2 {
+    font-size: 23px;
+    margin-bottom: 7px;
+    color: var(--green-dark);
+}
+
+.booking-heading p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.heading-icon {
+    color: var(--gold);
+    font-size: 30px;
+}
+
+/* Fields layout */
+
+.booking-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.35fr 1.4fr;
+    gap: 18px;
+    align-items: end;
+}
+
+.field {
+    min-width: 0;
+}
+
+.field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 11px;
+}
+
+.field label i {
+    color: var(--green);
+    margin-right: 6px;
+}
+
+.field small {
+    display: block;
+    margin-top: 9px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Number controls */
+
+.number-control {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.counter-btn {
+    width: 35px;
+    height: 46px;
+    flex-shrink: 0;
+    border: none;
+    background: #f4f7f4;
+    color: var(--green);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.counter-btn:hover {
+    background: #e6eee8;
+}
+
+.number-control input {
+    width: 100%;
+    min-width: 0;
+    height: 46px;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: white;
+    font-size: 16px;
+    color: var(--text);
+}
+
+/* Date input */
+
+.date-field input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: white;
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+}
+
+.field input:focus {
+    outline: 2px solid rgba(23, 76, 58, 0.25);
+    border-color: var(--green);
+}
+
+/* Main button */
+
+.button-field button {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 9px;
+    background: var(--green);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.button-field button:hover {
+    background: var(--green-dark);
+    transform: translateY(-1px);
+}
+
+.button-field button:focus-visible,
+.counter-btn:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+}
+
+/* Feedback messages */
+
+.message:empty {
+    display: none;
+}
+
+.message {
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.error-message {
+    background: #fff0ef;
+    color: #a42b24;
+    border: 1px solid #f2cfcb;
+}
+
+.success-message {
+    background: #edf7ef;
+    color: #205f38;
+    border: 1px solid #cce7d2;
+}
+
+.privacy-note {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.privacy-note i {
+    color: var(--green);
+    margin-right: 5px;
+}
+
+/* Tablet */
+
+@media (max-width: 850px) {
+    .booking-fields {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .button-field {
+        grid-column: 1 / -1;
+    }
+
+    .hero {
+        height: 320px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 520px) {
+    .availability-section {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .hero {
+        height: 290px;
+        border-radius: 14px;
+    }
+
+    .hero-overlay p {
+        font-size: 14px;
+    }
+
+    .booking-card {
+        padding: 21px 17px;
+        margin: -35px 10px 0;
+        border-radius: 14px;
+    }
+
+    .booking-heading h2 {
+        font-size: 20px;
+    }
+
+    .booking-fields {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .button-field {
+        grid-column: auto;
+    }
+
+    .button-field button {
+        min-height: 52px;
+    }
+}
+
+/* Make the navigation row the menu's positioning reference */
+
+/* Keep the main navigation above the page */
+#menu-list.hidden {
+    display: none;
+    cursor: pointer;
+}
 
 
+#menu-list {
+    position: absolute;
+    top:100%;
+    right: 10px;
+    left: 0;
+    width: 260px;
+    height: 500px; 
+    max-width: calc(100vw - 30px);
+    max-height: 85vh;
+    background: white;
+    z-index: 99999;
+    overflow-y: auto;
+    list-style: none;
+    padding: 15px;
+    margin-top: -10.5%;
+    padding-bottom: 490vh;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+
+}
+
+
+/* Hide only when the hidden class exists */
+
+
+#menu-list li a:hover {
+    background: #edf4ef;
+}
+
+/* Profile row */
+#menu-list .malo-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+}
+
+/* Hamburger icon */
+#menu-icon {
+    cursor: pointer;
+}
+.noh{
+    width:100;
+}
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 28px 16px 18px;
+    }
+
+    .social h3 {
+        font-size: 20px;
+    }
+
+    .social a {
+        font-size: 14px;
+        overflow-wrap: anywhere;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 13px;
+    }
+}
+/* Main footer */
+.site-footer {
+    background-color: #219bd0;
+    color: #ffffff;
+    padding: 35px 20px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Footer navigation */
+.footer-nav {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Social media section */
+.social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.social h3 {
+    margin: 0 0 8px;
+    font-size: 22px;
+    color: #f0c674;
+}
+
+/* Social links */
+.social a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social a i {
+    width: 22px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.social a:hover {
+    color: #f0c674;
+    transform: translateX(4px);
+}
+
+/* Horizontal divider */
+.noh {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    margin: 28px 0 18px;
+}
+
+/* Copyright and location */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+    color: #dddddd;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+.name{
+    font-size: 14px;
+    color: #130202;
+    padding-top: 5px;
+}
+.name:hover{
+    color: #080808;
+}
 
